@@ -3,7 +3,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import TaskItem from './TaskItem';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import TaskService from '../services/TaskService'
+import TaskService from '../../services/TaskService'
 export default function TaskList(props){
     let [tasks, setTasks] = useState([]);
     let [fetchCount, incFetchCount] = useState(0);
@@ -15,6 +15,7 @@ export default function TaskList(props){
     //Depends on fetchCount which will be incremented whenever a change is made to the database
     //and submitProp which will notify the TaskList to refresh when a new task is added
     useEffect(() => {
+      console.log("Tasks Fetched");
       if(props.completeProp){
         TaskService.getAllCompletedTasks().then((response) =>{
           setTasks(response.data);

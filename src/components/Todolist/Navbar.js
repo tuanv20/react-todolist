@@ -5,7 +5,7 @@ export default function Navbar(props){
     const [completeState, changeCompleteState] = useState(false);
 
     let refreshData = function(){
-        props.changeState();
+        props.changeRefresh();
     }
 
     let toggleComplete = function(){

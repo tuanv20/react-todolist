@@ -4,7 +4,7 @@ import {useState} from 'react';
 import DatePicker from 'react-datepicker';
 import axios from 'axios';
 import "react-datepicker/dist/react-datepicker.css";
-import TaskService from '../services/TaskService';
+import TaskService from '../../services/TaskService'
 export default function NewTaskButton(props){
 
     const [title, setTitle] = useState("");

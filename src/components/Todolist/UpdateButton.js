@@ -2,7 +2,7 @@ import React from 'react';
 import {useState} from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
-import TaskService from '../services/TaskService';
+import TaskService from '../../services/TaskService'
 export default function UpdateButton(props){
     let task = props.task;
     const [date, changeDate] = useState(new Date(TaskService.EpochtoDate(task.dueDate)));
