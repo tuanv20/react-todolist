@@ -23,7 +23,7 @@ export default function TaskList(props){
         }).catch( (response) => console.log(response.data));
       }
       else{
-      TaskService.getAllTasks().then((response) =>{
+      TaskService.getAllUnfinishedTasks().then((response) =>{
         setTasks(response.data);
         return response;
       }).catch( (response) => console.log(response.data));
