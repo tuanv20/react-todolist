@@ -18,6 +18,7 @@ export default function TodoInfo(args) {
           callback functions. I use the axios library within a service layer to communicate with endpoints 
           set up within my Springboot Application. These endpoints communicate with the service layer of 
           the Springboot Application and utilize a JPARepository and JDBCTemplate to manipulate the MySQL database. 
+          The content within the database is persisted via a Docker volume.
           (The changes are coordinated on the frontend with async functions and more React hooks).
         </ModalBody>
         <ModalFooter>
