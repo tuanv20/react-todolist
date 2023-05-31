@@ -5,6 +5,7 @@ import 'bootstrap';
 import NewTaskButton from './NewTaskButton';
 import TaskService from '../../services/TaskService'
 import Navbar from './Navbar';
+import TodoInfo from './TodoInfo';
 
 export default function Todolist(){
     const [taskListProp, updateTaskList] = useState(false);
@@ -34,6 +35,9 @@ export default function Todolist(){
         <div className='newTaskDiv'>
             <NewTaskButton submitTask = {submit} />
         </div>
+        </div>
+        <div className = 'info-div'>
+          <TodoInfo/>
         </div>
     </div>
     )

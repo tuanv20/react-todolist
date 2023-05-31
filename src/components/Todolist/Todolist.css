@@ -20,6 +20,12 @@
     display:flex;
     justify-content: center;
   }
+
+  .tasklistcontainer{
+    height: 300px;
+    width: 100%;
+    overflow-y: hidden;
+  }
   
   .newTaskDiv{
     display: flex;
@@ -49,6 +55,12 @@
   
   .searchbar > * {
     margin: 3%;
+  }
+
+  .info-div {
+    position: absolute;
+    top: 10%; 
+    left: 2%;
   }
   
   

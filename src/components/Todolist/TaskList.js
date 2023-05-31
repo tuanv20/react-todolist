@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react';
 import TaskItem from './TaskItem';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TaskService from '../../services/TaskService'
+import './Todolist.css';
 export default function TaskList(props){
     let [tasks, setTasks] = useState([]);
     let [fetchCount, incFetchCount] = useState(0);
@@ -32,23 +33,25 @@ export default function TaskList(props){
 
     //If the update is not fed, return the table row; otherwise, return the update button 
     return (
-          <table className="table table-hover table-dark rounded-bottom overflow-hidden">
-            <thead>
-              <tr>  
-                <th className = "text-center">Task</th>
-                <th className = "text-center">Due Date</th>
-                <th className = "text-center">Complete Date</th>
-                <th className = "text-center">Tools</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                {(tasks.length === 0)?<td colSpan="5" className="text-center"> Nothing to do </td> : null}
-              </tr>
-              {tasks.map(function(element){
-                return <TaskItem key = {element.id} updateTask = {update} task = {element}/>
-              })}
-            </tbody>
-          </table>
+          <div className='tasklistcontainer'>
+            <table className="table table-hover table-dark rounded-bottom overflow-hidden">
+              <thead>
+                <tr>  
+                  <th className = "text-center">Task</th>
+                  <th className = "text-center">Due Date</th>
+                  <th className = "text-center">Complete Date</th>
+                  <th className = "text-center">Tools</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  {(tasks.length === 0)?<td colSpan="5" className="text-center"> Nothing to do </td> : null}
+                </tr>
+                {tasks.map(function(element){
+                  return <TaskItem key = {element.id} updateTask = {update} task = {element}/>
+                })}
+              </tbody>
+            </table>
+          </div>
       )
 }
