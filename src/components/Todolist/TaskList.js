@@ -16,6 +16,7 @@ export default function TaskList(props){
     //Depends on fetchCount which will be incremented whenever a change is made to the database
     //and submitProp which will notify the TaskList to refresh when a new task is added
     useEffect(() => {
+      console.log(props.searchText);
       console.log("Tasks Fetched");
       if(props.completeProp){
         TaskService.getAllCompletedTasks().then((response) =>{
@@ -29,7 +30,7 @@ export default function TaskList(props){
         return response;
       }).catch( (response) => console.log(response.data));
       }
-    }, [fetchCount, props.submitProp, props.completeProp])
+    }, [fetchCount, props.submitProp, props.completeProp, props.searchText])
 
     //If the update is not fed, return the table row; otherwise, return the update button 
     return (

@@ -1,7 +1,7 @@
 import axios from 'axios' 
 
-const REST_API_URL = 'http://54.174.4.148:8081/';
-//const REST_API_URL = 'http://localhost:8081/'
+//const REST_API_URL = 'http://54.174.4.148:8081/';
+const REST_API_URL = 'http://localhost:8081/'
 
 class TaskService{
     getAllTasks(){
@@ -14,6 +14,10 @@ class TaskService{
 
     getAllUnfinishedTasks(){
         return axios.get(REST_API_URL + "getUnfinishedTasks");
+    }
+
+    getTasksByString(searchstr){
+        return axios.get(REST_API_URL + "getTasksByString/" + searchstr);
     }
 
     addTask(task){

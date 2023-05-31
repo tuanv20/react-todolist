@@ -1,8 +1,10 @@
 import React from 'react';
 import {useState} from 'react';
+import TaskService from '../../services/TaskService';
 
 export default function Navbar(props){
     const [completeState, changeCompleteState] = useState(false);
+    const [searchText, changeSearchText] = useState("");
 
     let refreshData = function(){
         props.changeRefresh();
@@ -11,6 +13,11 @@ export default function Navbar(props){
     let toggleComplete = function(){
         changeCompleteState(!completeState);
         props.changeComplete();
+    }
+
+    let searchHandler = function(){
+        props.searchTextCallback(searchText);
+        changeSearchText("");
     }
     return(
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary border border-dark border-2 rounded-top">
@@ -29,8 +36,8 @@ export default function Navbar(props){
             }
             </ul>
             <div class="searchbar">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search"></input>
-                <button class="btn btn-outline-light" type="submit">Search</button>
+                <input value = {searchText} class="form-control" type="search" placeholder="Search" aria-label="Search" onChange={ (e) => changeSearchText(e.target.value)}></input>
+                <button class="btn btn-outline-light" type="submit" onClick={searchHandler}>Search</button>
             </div>
         </nav>
     )   
