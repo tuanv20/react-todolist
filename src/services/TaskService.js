@@ -1,6 +1,5 @@
 import axios from 'axios' 
 
-//const REST_API_URL = 'http://localhost:8081/';
 const REST_API_URL = 'http://18.212.4.225:8081/';
 
 class TaskService{
