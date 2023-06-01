@@ -12,6 +12,8 @@ export default function Todolist(){
     const [taskListProp, updateTaskList] = useState(false);
     const [filterState, changeFilterState] = useState("");
     const [searchText, changeSearchText] = useState("");
+    const [globalTasks, setTasks] = useState([]);
+    const [globalPage, setPage] = useState(1);
   
     let refreshPressed = function(){
       updateTaskList(!taskListProp);
@@ -33,16 +35,24 @@ export default function Todolist(){
       })
     }
 
+    let updateGlobalTasks = function(tasks){
+      setTasks(tasks);
+    }
+
+    let updateGlobalPage = function(page){
+      setPage(page);
+    }
+
     return ( 
     <div className="App-div">
         <div className="content-div">
-        <Navbar changeRefresh = {refreshPressed} changeFilter = {filterToggle} searchTextCallback = {searchTextCallbackHandler} filterProp = {filterState}/>
+        <Navbar filterProp = {filterState} changeRefresh = {refreshPressed} changeFilter = {filterToggle} searchTextCallback = {searchTextCallbackHandler}/>
         <div className='table_div'>
-            <TaskList submitProp = {taskListProp} filterProp = {filterState} searchText = {searchText}/>
+            <TaskList submitProp = {taskListProp} filterProp = {filterState} searchText = {searchText} currPage = {globalPage} updateTasks = {updateGlobalTasks}/>
         </div>
         <div style={{display:'flex', flexDirection:'row'}}>
           <div className='pagesDiv'>
-            <PageNav/>
+            <PageNav taskProp = {globalTasks} changeGlobalPage = {updateGlobalPage}/>
           </div>
           <div className='newTaskDiv'>
               <NewTaskButton submitTask = {submit} />

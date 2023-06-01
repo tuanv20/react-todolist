@@ -8,7 +8,19 @@ import './Todolist.css';
 export default function TaskList(props){
     let [tasks, setTasks] = useState([]);
     let [fetchCount, incFetchCount] = useState(0);
+    let currPage = props.currPage;
 
+    let getTasksForPage = function(tasksArr, page){
+      let pageTasks = [];
+      for(let i = 0; i < tasksArr.length; i++){
+        let pagelo = (page - 1) * 5;
+        let pagehi = (page * 5);
+        if(i >= pagelo && i < pagehi){
+          pageTasks.push(tasksArr[i]);
+        }
+      }
+      return pageTasks;
+    }
     let update = function(){
       incFetchCount(fetchCount + 1);
     }
@@ -42,20 +54,13 @@ export default function TaskList(props){
           }).catch( (response) => console.log(response));
           break;
       }
-      // if(props.filterProp == ""){
-      //   TaskService.getAllCompletedTasks().then((response) =>{
-      //     setTasks(response.data);
-      //     return response;
-      //   }).catch( (response) => console.log(response.data));
-      // }
+    }, [fetchCount, props.submitProp, props.filterProp, props.searchText, props.currPage])
 
-      // else{
-      // TaskService.getAllUnfinishedTasks().then((response) =>{
-      //   setTasks(response.data);
-      //   return response;
-      // }).catch( (response) => console.log(response.data));
-      // }
-    }, [fetchCount, props.submitProp, props.filterProp, props.searchText])
+    //Updates the global task list whenever tasks are updated
+    useEffect( () => {
+      props.updateTasks(tasks);
+    }, [tasks])
+
 
     //If the update is not fed, return the table row; otherwise, return the update button 
     return (
@@ -73,7 +78,7 @@ export default function TaskList(props){
                 <tr>
                   {(tasks.length === 0)?<td colSpan="5" className="text-center"> Nothing to do </td> : null}
                 </tr>
-                {tasks.map(function(element){
+                {getTasksForPage(tasks, currPage).map(function(element){
                   return <TaskItem key = {element.id} updateTask = {update} task = {element}/>
                 })}
               </tbody>
