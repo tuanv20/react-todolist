@@ -29,11 +29,20 @@ export default function PageNav(props) {
     return(
         <nav aria-label="Page navigation example">
             <ul class="pagination pagination-sm">
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
+                {currPage == 1 ?
+                <li class="page-item disabled">
+                    <a class="page-link" onClick={() => togglePage(currPage - 1)} aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
-                </li>
+                </li> 
+                :
+                <li class="page-item">
+                    <a class="page-link" onClick={() => togglePage(currPage - 1)} aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li> 
+                }
+                
                 {/* Creates an array from 1 to pages to map to the pages in the pagination nav*/}
                 { pageArray.map(function(element){
                     if(currPage == element){
@@ -43,11 +52,19 @@ export default function PageNav(props) {
                         return <li class="page-item"><a class="page-link" onClick={ (e) => togglePage(e.target.innerHTML)}>{element}</a></li>
                     }
                 })}
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
+
+                {currPage == pages ? 
+                <li class="page-item disabled">
+                    <a class="page-link" onClick={() => togglePage(currPage + 1)} aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
+                :
+                <li class="page-item">
+                    <a class="page-link" onClick={() => togglePage(currPage + 1)} aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>}
             </ul>
         </nav>
     )
