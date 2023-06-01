@@ -1,6 +1,6 @@
 {
   "name": "react-todolist",
-  "proxy": "http://54.174.4.148:8081/",
+  "proxy": "http://localhost:8081/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

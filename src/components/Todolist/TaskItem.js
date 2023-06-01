@@ -42,7 +42,7 @@ export default function TaskItem(props){
         return(
             <tr onDoubleClick={pressUpdate} className="border border-2 border-secondary">
                 {task.completed ? <td className="text-left" ><s>{title}</s></td>
-                : <td className="text-left">{title}</td>}
+                : <td className="text-left overflow-auto">{title}</td>}
                 <td className="text-center">{TaskService.EpochtoDate(dueDate)}</td>
                 <td className="text-center">{task.completed ? TaskService.EpochtoDate(completeDate) : " "}</td>
                 <td className="text-center">

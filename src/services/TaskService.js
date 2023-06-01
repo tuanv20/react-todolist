@@ -1,19 +1,19 @@
 import axios from 'axios' 
 
-const REST_API_URL = 'http://54.174.4.148:8081/';
-//const REST_API_URL = 'http://localhost:8081/'
+const REST_API_URL = 'http://localhost:8081/';
+//const REST_API_URL = 'http://54.174.4.148:8081/'
 
 class TaskService{
-    getAllTasks(){
-        return axios.get(REST_API_URL + "getTasks");
+    getAllTasks(searchstr){
+        return axios.get(REST_API_URL + "getTasks/" + searchstr);
     }
 
-    getAllCompletedTasks(){
-        return axios.get(REST_API_URL + "getCompletedTasks");
+    getAllCompletedTasks(searchstr){
+        return axios.get(REST_API_URL + "getCompletedTasks/" + searchstr);
     }
 
-    getAllUnfinishedTasks(){
-        return axios.get(REST_API_URL + "getUnfinishedTasks");
+    getAllUnfinishedTasks(searchstr){
+        return axios.get(REST_API_URL + "getUnfinishedTasks/" + searchstr);
     }
 
     getTasksByString(searchstr){

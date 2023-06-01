@@ -6,22 +6,25 @@ import NewTaskButton from './NewTaskButton';
 import TaskService from '../../services/TaskService'
 import Navbar from './Navbar';
 import TodoInfo from './TodoInfo';
+import PageNav from './PageNav';
 
 export default function Todolist(){
     const [taskListProp, updateTaskList] = useState(false);
-    const [completeStatus, changeCompleteStatus] = useState(false);
+    const [filterState, changeFilterState] = useState("");
     const [searchText, changeSearchText] = useState("");
-  
-    let completePressed = function(){
-      changeCompleteStatus(!completeStatus)
-    }
   
     let refreshPressed = function(){
       updateTaskList(!taskListProp);
+      changeFilterState("");
+      changeSearchText("");
     }
 
     let searchTextCallbackHandler = function(childSearchText){
       changeSearchText(childSearchText);
+    }
+
+    let filterToggle = function(filtertype){
+      changeFilterState(filtertype);
     }
   
     let submit = async function(task){
@@ -33,12 +36,17 @@ export default function Todolist(){
     return ( 
     <div className="App-div">
         <div className="content-div">
-        <Navbar changeRefresh = {refreshPressed} changeComplete = {completePressed} searchTextCallback = {searchTextCallbackHandler} completeStatus = {completeStatus}/>
+        <Navbar changeRefresh = {refreshPressed} changeFilter = {filterToggle} searchTextCallback = {searchTextCallbackHandler} filterProp = {filterState}/>
         <div className='table_div'>
-            <TaskList submitProp = {taskListProp} completeProp = {completeStatus} searchText = {searchText}/>
+            <TaskList submitProp = {taskListProp} filterProp = {filterState} searchText = {searchText}/>
         </div>
-        <div className='newTaskDiv'>
-            <NewTaskButton submitTask = {submit} />
+        <div style={{display:'flex', flexDirection:'row'}}>
+          <div className='pagesDiv'>
+            <PageNav/>
+          </div>
+          <div className='newTaskDiv'>
+              <NewTaskButton submitTask = {submit} />
+          </div>
         </div>
         </div>
         <div className = 'info-div'>

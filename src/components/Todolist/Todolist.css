@@ -27,6 +27,10 @@
     overflow-y: hidden;
   }
   
+  .pagesDiv{
+    justify-content: bottom;
+  }
+  
   .newTaskDiv{
     display: flex;
     flex-direction: row;

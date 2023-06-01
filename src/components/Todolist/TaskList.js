@@ -16,21 +16,46 @@ export default function TaskList(props){
     //Depends on fetchCount which will be incremented whenever a change is made to the database
     //and submitProp which will notify the TaskList to refresh when a new task is added
     useEffect(() => {
+      console.log(props.filterProp);
       console.log(props.searchText);
       console.log("Tasks Fetched");
-      if(props.completeProp){
-        TaskService.getAllCompletedTasks().then((response) =>{
-          setTasks(response.data);
-          return response;
-        }).catch( (response) => console.log(response.data));
+      
+      switch (props.filterProp){
+        case "Completed":
+          TaskService.getAllCompletedTasks(props.searchText).then((response) =>{
+            setTasks(response.data);
+            return response;
+          }).catch( (response) => console.log(response));
+          break;
+
+        case "Unfinished":
+          TaskService.getAllUnfinishedTasks(props.searchText).then((response) =>{
+            setTasks(response.data);
+            return response;
+          }).catch( (response) => console.log(response));
+          break;
+
+        default: //All case
+          TaskService.getAllTasks(props.searchText).then((response) =>{
+            setTasks(response.data);
+            return response;
+          }).catch( (response) => console.log(response));
+          break;
       }
-      else{
-      TaskService.getAllUnfinishedTasks().then((response) =>{
-        setTasks(response.data);
-        return response;
-      }).catch( (response) => console.log(response.data));
-      }
-    }, [fetchCount, props.submitProp, props.completeProp, props.searchText])
+      // if(props.filterProp == ""){
+      //   TaskService.getAllCompletedTasks().then((response) =>{
+      //     setTasks(response.data);
+      //     return response;
+      //   }).catch( (response) => console.log(response.data));
+      // }
+
+      // else{
+      // TaskService.getAllUnfinishedTasks().then((response) =>{
+      //   setTasks(response.data);
+      //   return response;
+      // }).catch( (response) => console.log(response.data));
+      // }
+    }, [fetchCount, props.submitProp, props.filterProp, props.searchText])
 
     //If the update is not fed, return the table row; otherwise, return the update button 
     return (
