@@ -15,17 +15,10 @@ export default function Navbar(){
     const navigate = useNavigate();
     const [navigateTodo, changeTodo] = useState(false);
     const [navigateHome, changeHome] = useState(false);
+    const [navigateCalendar, changeCalendar] = useState(false);
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(!dropdownOpen);
-
-    let todoPressed = function(){
-        changeTodo(!navigateTodo)
-    }
-
-    let homePressed = function(){
-        changeHome(!navigateHome)
-    }
 
     useEffect(() =>{
             navigate("/todolist")
@@ -33,7 +26,12 @@ export default function Navbar(){
 
     useEffect(() =>{
         navigate("/")
-}, [navigateHome])
+    }, [navigateHome])
+
+    
+    useEffect(() =>{
+      navigate("/calendar")
+  }, [navigateCalendar])
 
 
     return(
@@ -53,15 +51,15 @@ export default function Navbar(){
           Projects
         </DropdownToggle>
         <DropdownMenu>
-          <DropdownItem onClick={todoPressed}>TodoList</DropdownItem>
+          <DropdownItem onClick={() => changeTodo(!navigateTodo)}>TodoList</DropdownItem>
           <DropdownItem divider />
-          <DropdownItem>Project 2</DropdownItem>
+          <DropdownItem onClick = {() => changeCalendar(!navigateCalendar)}>Calendar</DropdownItem>
           <DropdownItem divider />
           <DropdownItem>Project 3</DropdownItem>
         </DropdownMenu>
       </Dropdown>
       <NavItem>
-        <NavLink nav caret onClick = {homePressed} style={{color: 'white', textDecoration: 'none', caretColor: 'transparent', cursor: 'pointer'}}>
+        <NavLink nav caret onClick = {() => changeHome(!navigateHome)} style={{color: 'white', textDecoration: 'none', caretColor: 'transparent', cursor: 'pointer'}}>
           Home
         </NavLink>
       </NavItem>
