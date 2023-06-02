@@ -1,5 +1,5 @@
 import './Todolist.css';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import TaskList from './TaskList';
 import 'bootstrap';
 import NewTaskButton from './NewTaskButton';
@@ -8,7 +8,7 @@ import Navbar from './Navbar';
 import TodoInfo from './TodoInfo';
 import PageNav from './PageNav';
 
-export default function Todolist(){
+export default function Todolist(props){
     const [taskListProp, updateTaskList] = useState(false);
     const [filterState, changeFilterState] = useState("");
     const [searchText, changeSearchText] = useState("");
@@ -36,7 +36,9 @@ export default function Todolist(){
     }
 
     let updateGlobalTasks = function(tasks){
+      console.log("Updating Global Tasks in Todolist");
       setTasks(tasks);
+      props.globalTasksUpdate();
     }
 
     let updateGlobalPage = function(page){

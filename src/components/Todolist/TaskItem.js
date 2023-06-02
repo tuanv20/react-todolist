@@ -3,6 +3,8 @@ import React from 'react';
 import {useState} from 'react';
 import UpdateButton from './UpdateButton';
 import TaskService from '../../services/TaskService'
+import 'bootstrap-icons/font/bootstrap-icons.css'
+
 export default function TaskItem(props){
     let task = props.task;
     let title = task.taskItem;
@@ -47,10 +49,10 @@ export default function TaskItem(props){
                 <td className="text-center">{task.completed ? TaskService.EpochtoDate(completeDate) : " "}</td>
                 <td className="text-center">
                     <button type="button" className="btn btn-danger btn-xs" alt="Delete the task" onClick = {deleteTask}>
-                    Delete
+                    Delete <i class="bi bi-trash"></i>
                     </button>
                     &nbsp;
-                    {task.completed ? <button type="button" className="btn btn-secondary btn-xs" alt="Undo Complete" onClick = {completeTask}> Completed </button>
+                    {task.completed ? <button type="button" className="btn btn-secondary btn-xs" alt="Undo Complete" onClick = {completeTask}> Undo </button>
                     : <button type="button" className="btn btn-success btn-xs" alt="Complete the task" onClick = {completeTask}> Complete </button>}
                 </td>
             </tr>

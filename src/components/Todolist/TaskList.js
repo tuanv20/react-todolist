@@ -58,6 +58,7 @@ export default function TaskList(props){
 
     //Updates the global task list whenever tasks are updated
     useEffect( () => {
+      console.log("Updating Tasks in TaskList");
       props.updateTasks(tasks);
     }, [tasks])
 

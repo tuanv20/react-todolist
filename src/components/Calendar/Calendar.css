@@ -1,0 +1,11 @@
+.contentDiv{
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonFooter{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 2%;
+}
