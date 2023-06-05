@@ -1,4 +1,3 @@
-import reactpng from './img/react.png';
 import { useNavigate } from 'react-router-dom';
 
 export default function VideoSelect(props){
@@ -10,7 +9,7 @@ export default function VideoSelect(props){
     return (
         <div class="col mb-5">
         <div class="card h-100">
-            <img class="card-img-top" src={reactpng} alt="..." />
+            <img class="card-img-top" src={props.img} alt="..." style={{maxWidth:"275px", maxHeight:"150px"}}/>
             <div class="card-body p-4">
                 <div class="text-center">
                     <h5 class="fw-bolder">{props.title}</h5>

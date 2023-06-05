@@ -12,11 +12,21 @@ export default function VideoPage(){
             react_webdevportfolio: "https://www.youtube.com/embed/0fYi8SGA20k",
             react_roadmap: "https://www.youtube.com/embed/xoh_L3KPpks",
             react_fullstack: "https://www.youtube.com/embed/9i1gQ7w2V24",
+            sb_tutorial: "https://www.youtube.com/embed/9SGDpanrc8U",
+        }
+
+        let backNavigate = function(){
+            if(vid_id.includes('react')){
+                navigate("/resourcemanager/react")
+            }
+            else if(vid_id.includes('sb')){
+                navigate("/resourcemanager/springboot")
+            }
         }
     return(
         <div>
             <div className='pageDiv'>
-                <button className = 'btn btn-success backButton' onClick ={() => navigate("/resourcemanager/react")}>Back</button>
+                <button className = 'btn btn-success backButton' onClick ={backNavigate}>Back</button>
                 <div className="pageContentDiv">
                     <div className="videoDiv">
                         <div class="ratio ratio-16x9">
