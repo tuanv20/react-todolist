@@ -1,7 +1,7 @@
 import axios from 'axios' 
 
-const REST_API_URL = 'http://localhost:8081/';
-// const REST_API_URL = 'http://54.174.4.148:8081/'
+//const REST_API_URL = 'http://localhost:8081/';
+const REST_API_URL = 'http://54.174.4.148:8081/'
 
 class TaskService{
     getAllTasks(searchstr){

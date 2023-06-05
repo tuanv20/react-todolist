@@ -46,7 +46,7 @@ export default function ReactPage(){
                 <div class="container px-4 px-lg-5 mt-5">
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                         {videos.map(function(element) {
-                            return <VideoSelect title = {element.title} link = {element.link} desc = {element.description} id = {element.video_id} img = {reactpng} type = "React"/>
+                            return <VideoSelect title = {element.title} link = {element.link} desc = {element.description} id = {element.video_id} img = {reactpng}/>
                         })}
                     </div>
                 </div>

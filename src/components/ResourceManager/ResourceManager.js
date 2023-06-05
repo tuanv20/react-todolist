@@ -21,31 +21,37 @@ export default function ResourceManager(){
     }
 
     let displayReact = function(){
+        toggleSidebar();
         changePage("React")
         navigate("/resourcemanager/react");
     }
 
     let displaySpringBoot = function(){
+        toggleSidebar();
         changePage("SpringBoot")
         navigate("/resourcemanager/springboot");
     }
 
     let displayDocker = function(){
+        toggleSidebar();
         changePage("Docker")
         navigate("/resourcemanager/docker");
     }
 
     let displayBootStrap = function(){
+        toggleSidebar();
         changePage("BootStrap")
         navigate("/resourcemanager/bootstrap");
     }
 
     let displayMySQL = function(){
+        toggleSidebar();
         changePage("MySQL")
         navigate("/resourcemanager/mysql");
     }
 
     let displayMisc = function(){
+        toggleSidebar();
         changePage("Misc")
         navigate("/resourcemanager/misc");
     }
