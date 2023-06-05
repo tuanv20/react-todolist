@@ -5,20 +5,25 @@ import moment from 'moment';
 import TaskService from '../../services/TaskService';
 import './Calendar.css';
 import 'bootstrap-icons/font/bootstrap-icons.css'
+import { useNavigate } from 'react-router-dom';
 
 const localizer = momentLocalizer(moment);
 
 export default function TaskCalendar(props){
+    const navigate = useNavigate();
     const [events, changeEvents] = useState([]);
     const [tasks, setTasks] = useState([]);
 
+    let agendaPressed = function(){
+        navigate("/agenda")
+    }
+
     useEffect( () => {
-        console.log("Prop change received: Updating tasks on calendar");
         TaskService.getAllTasks("").then((response) =>{
             setTasks(response.data);
             return response;
           }).catch( (response) => console.log(response));
-    }, [props.taskProp])
+    }, [])
 
     useEffect( () => {
         let eventArr = [];
@@ -36,9 +41,9 @@ export default function TaskCalendar(props){
 
     return (
         <div className = "contentDiv">
-            <Calendar view='month' views={['month']} localizer = {localizer} events = {events} startAccessor="start" endAccessor="end" style={{height:'37em'}}/>
+            <Calendar defaultView = 'month' views={['month', 'agenda']} localizer = {localizer} events = {events} startAccessor="start" endAccessor="end" style={{height:'37em'}}/>
             <div className="buttonFooter">
-                <button className="btn btn-success">Refresh <i class="bi bi-arrow-repeat"></i></button>
+                <button className="btn btn-secondary" onClick = {agendaPressed}> Agenda <i class="bi bi-book"></i></button>
             </div>
         </div>
     )

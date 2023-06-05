@@ -36,9 +36,7 @@ export default function Todolist(props){
     }
 
     let updateGlobalTasks = function(tasks){
-      console.log("Updating Global Tasks in Todolist");
       setTasks(tasks);
-      props.globalTasksUpdate();
     }
 
     let updateGlobalPage = function(page){

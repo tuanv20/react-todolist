@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     Nav, 
     NavItem,
-    NavLink,
+    NavLink,  
     Dropdown,
     DropdownItem,
     DropdownToggle,
@@ -16,6 +16,7 @@ export default function Navbar(){
     const [navigateTodo, changeTodo] = useState(false);
     const [navigateHome, changeHome] = useState(false);
     const [navigateCalendar, changeCalendar] = useState(false);
+    const [navigateResourceManager, changeResourceManager] = useState(false);
 
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(!dropdownOpen);
@@ -32,16 +33,24 @@ export default function Navbar(){
       changeCalendar(!navigateCalendar)
     }
 
-    useEffect(() =>{
+    let resourceManagerPressed = function(){
+      changeResourceManager(!navigateResourceManager);
+    }
+
+    //Using useMemo so the navbar doesn't reload everytime we refresh the page (since it's a global component)
+    useMemo(() =>{
+      navigate("/resourcemanager")
+    }, [navigateResourceManager])
+
+    useMemo(() =>{
       navigate("/todolist")
     }, [navigateTodo])
     
-    useEffect(() =>{
+    useMemo(() =>{
       navigate("/calendar")
     }, [navigateCalendar])
 
-    //Need to include this useEffect last so the homepage is rendered at the start 
-    useEffect(() =>{
+    useMemo(() =>{
       navigate("/")
     }, [navigateHome])
 
@@ -67,7 +76,7 @@ export default function Navbar(){
           <DropdownItem divider />
           <DropdownItem onClick = {calendarPressed}>Calendar</DropdownItem>
           <DropdownItem divider />
-          <DropdownItem>Project 3</DropdownItem>
+          <DropdownItem onClick = {resourceManagerPressed}>Resource Manager</DropdownItem>
         </DropdownMenu>
       </Dropdown>
       <NavItem>

@@ -1,0 +1,21 @@
+.contentDiv{
+    display:flex;
+    flex-direction: column;
+    height:100%;
+    width: 100%;
+}
+.header{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 36px;
+    background-color:#D7B377;
+    color: #F5F0F6;
+    min-height: 2em;
+}
+
+.bodyDiv{
+    background-color: #F5F0F6;
+    min-height: 40em;
+    min-width: 100px;
+}

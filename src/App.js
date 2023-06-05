@@ -5,13 +5,10 @@ import Todolist from './components/Todolist/Todolist';
 import Welcome from './components/Homepage/Welcome'
 import Navbar from './components/Homepage/Navbar';
 import Calendar from './components/Calendar/Calendar';
+import Agenda from './components/Calendar/Agenda';
+import ResourceManager from './components/ResourceManager/ResourceManager';
 
 function App() {
-  const [tasksUpdated, updateTasks] = useState(false);
-  let taskUpdate = function(){
-    console.log("Updating Global Tasks in App and passing prop down");
-    updateTasks(!tasksUpdated);
-  }
 
   return (
     <div>
@@ -20,10 +17,16 @@ function App() {
         <Route path = "/" element = {<Welcome />}>
         </Route>
 
-        <Route path = "/todolist" element = {<Todolist globalTasksUpdate = {taskUpdate}/>}>
+        <Route path = "/todolist" element = {<Todolist />}>
         </Route>
 
-        <Route path = "/calendar" element = {<Calendar taskProp = {tasksUpdated}/>}>
+        <Route path = "/calendar" element = {<Calendar />}>
+        </Route>
+
+        <Route path = "/agenda" element = {<Agenda/>}>
+        </Route>
+
+        <Route path = "/resourcemanager" element = {<ResourceManager/>}>
         </Route>
 
       </Routes>
