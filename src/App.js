@@ -7,6 +7,8 @@ import Navbar from './components/Homepage/Navbar';
 import Calendar from './components/Calendar/Calendar';
 import Agenda from './components/Calendar/Agenda';
 import ResourceManager from './components/ResourceManager/ResourceManager';
+import VideoPage from './components/ResourceManager/VideoPage';
+import ReactPage from './components/ResourceManager/resourcepages/ReactPage';
 
 function App() {
 
@@ -14,19 +16,19 @@ function App() {
     <div>
       <Navbar/>
       <Routes>
-        <Route path = "/" element = {<Welcome />}>
-        </Route>
+        <Route path = "/" element = {<Welcome />}/>
 
-        <Route path = "/todolist" element = {<Todolist />}>
-        </Route>
+        <Route path = "/todolist" element = {<Todolist />}/>
 
-        <Route path = "/calendar" element = {<Calendar />}>
-        </Route>
+        <Route path = "/calendar" element = {<Calendar />}/>
 
-        <Route path = "/agenda" element = {<Agenda/>}>
-        </Route>
+        <Route path = "/agenda" element = {<Agenda/>}/>
 
         <Route path = "/resourcemanager" element = {<ResourceManager/>}>
+          <Route path ="react" element = {<ReactPage/>}/>
+        </Route>
+
+        <Route path = "/videoapi/:id" element = {<VideoPage/>}>
         </Route>
 
       </Routes>

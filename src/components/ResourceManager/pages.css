@@ -8,22 +8,12 @@
     min-height: 100vh;
 }
 
-.pageHeader{
-    color: #324A5F;
-    font-size:24px;
-    font-weight: bold;
-    margin-bottom: 20vh;
-}
 .pageContentDiv{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.videoselectDiv{
-    height:20vmax;
-    width: 10vmax;
-}
 .videoDiv{
     overflow:hidden;
     width: max-content;
@@ -36,4 +26,18 @@
 .ratio{
     height:20vmax;
     width: 30vmax;
+}
+
+.backButton {
+    font-size: 20px;
+    position: fixed;
+    left: 10vh;
+    top: 10vh;
+    background-color: gray;
+    border-color: #324A5F;
+    border-width: 0.22vh;
+}
+
+.backButton:hover{
+    background-color: #324A5F;
 }

@@ -1,13 +1,14 @@
 import 'bootstrap';
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import './ResourceManager.css';
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import SidebarButton from './SidebarButton';
 import { NavItem } from 'reactstrap';
-import ReactPage from './pages/ReactPage';
+import { useNavigate, Link, Outlet } from 'react-router-dom';
 
 export default function ResourceManager(){
-    const [sidebarWidth, changeWidth] = useState(250);
+    const navigate = useNavigate();
+    const [sidebarWidth, changeWidth] = useState(0);
     const [page, changePage] = useState("");
 
     let toggleSidebar = function(){
@@ -19,16 +20,9 @@ export default function ResourceManager(){
         }
     }
 
-    let renderPage = function(){
-        switch(page){
-            case 'React': 
-                console.log("Displaying React Page")
-                return <ReactPage/>;
-        }
-    }
-    
     let displayReact = function(){
-        changePage('React');
+        changePage("React");
+        navigate("/resourcemanager/react");
     }
 
     return(
@@ -38,8 +32,8 @@ export default function ResourceManager(){
                 <div className='sideheader'> Resources </div>
                 <ul className = 'sidecontent'>
                     {page == 'React' ? 
-                    <NavItem className = "resourcelink" style={{color:"#324A5F"}} onClick ={displayReact}> React </NavItem>:
-                    <NavItem className = "resourcelink" onClick ={displayReact}> React</NavItem>
+                    <NavItem className = "resourcelink" onClick = {displayReact} style={{color:"#324A5F"}}> React </NavItem>:
+                    <NavItem className = "resourcelink" onClick ={displayReact}> React </NavItem>
                     }
                     <NavItem className = "resourcelink"> SpringBoot</NavItem>
                     <NavItem className = "resourcelink"> Docker</NavItem>
@@ -48,7 +42,7 @@ export default function ResourceManager(){
                     <NavItem className = "resourcelink"> Miscellaneous</NavItem>
                 </ul>
             </nav>
-            {renderPage()}
+            <Outlet/>
         </div>
                 <SidebarButton togglePressed = {toggleSidebar} width = {sidebarWidth}/>
         </div>
