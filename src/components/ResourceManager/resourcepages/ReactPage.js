@@ -6,11 +6,30 @@ export default function ReactPage(){
             description: "Simple React Overview",
             video_id: "react_tutorial"
         },
+
         {
             title: "React Router",
             description: "Reacter Router DOM",
             video_id: "react_router"
-        }
+        },
+
+        {
+            title: "React Webdev Portfolio",
+            description: "3D Webdev Portfolio React App",
+            video_id: "react_webdevportfolio"
+        },
+
+        {
+            title: "React Roadmap",
+            description: "Beginner's Roadmap to React",
+            video_id: "react_roadmap"
+        },
+
+        {
+            title: "React Fullstack",
+            description: "React Full Stack Project Tutorial",
+            video_id: "react_fullstack"
+        },
     ]
     return(
         <body>

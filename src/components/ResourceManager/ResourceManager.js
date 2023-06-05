@@ -21,9 +21,35 @@ export default function ResourceManager(){
     }
 
     let displayReact = function(){
-        changePage("React");
+        changePage("React")
         navigate("/resourcemanager/react");
     }
+
+    let displaySpringBoot = function(){
+        changePage("SpringBoot")
+        navigate("/resourcemanager/springboot");
+    }
+
+    let displayDocker = function(){
+        changePage("Docker")
+        navigate("/resourcemanager/docker");
+    }
+
+    let displayBootStrap = function(){
+        changePage("BootStrap")
+        navigate("/resourcemanager/bootstrap");
+    }
+
+    let displayMySQL = function(){
+        changePage("MySQL")
+        navigate("/resourcemanager/mysql");
+    }
+
+    let displayMisc = function(){
+        changePage("Misc")
+        navigate("/resourcemanager/misc");
+    }
+
 
     return(
         <div>
@@ -35,11 +61,31 @@ export default function ResourceManager(){
                     <NavItem className = "resourcelink" onClick = {displayReact} style={{color:"#324A5F"}}> React </NavItem>:
                     <NavItem className = "resourcelink" onClick ={displayReact}> React </NavItem>
                     }
-                    <NavItem className = "resourcelink"> SpringBoot</NavItem>
-                    <NavItem className = "resourcelink"> Docker</NavItem>
-                    <NavItem className = "resourcelink"> BootStrap</NavItem>
-                    <NavItem className = "resourcelink"> MySQL</NavItem>
-                    <NavItem className = "resourcelink"> Miscellaneous</NavItem>
+
+                    {page == 'SpringBoot' ? 
+                    <NavItem className = "resourcelink" onClick = {displaySpringBoot} style={{color:"#324A5F"}}> SpringBoot </NavItem>:
+                    <NavItem className = "resourcelink" onClick ={displaySpringBoot}> SpringBoot </NavItem>
+                    }
+
+                    {page == 'Docker' ? 
+                    <NavItem className = "resourcelink" onClick = {displayDocker} style={{color:"#324A5F"}}> Docker </NavItem>:
+                    <NavItem className = "resourcelink" onClick ={displayDocker}> Docker </NavItem>
+                    }
+
+                    {page == 'BootStrap' ? 
+                    <NavItem className = "resourcelink" onClick = {displayBootStrap} style={{color:"#324A5F"}}> BootStrap </NavItem>:
+                    <NavItem className = "resourcelink" onClick ={displayBootStrap}> Docker </NavItem>
+                    }
+
+                    {page == 'MySQL' ? 
+                    <NavItem className = "resourcelink" onClick = {displayMySQL} style={{color:"#324A5F"}}> MySQL </NavItem>:
+                    <NavItem className = "resourcelink" onClick ={displayMySQL}> MySQL </NavItem>
+                    }
+
+                    {page == 'Misc' ? 
+                    <NavItem className = "resourcelink" onClick = {displayMisc} style={{color:"#324A5F"}}> Miscellaneous </NavItem>:
+                    <NavItem className = "resourcelink" onClick ={displayMisc}> Miscellaneous </NavItem>
+                    }
                 </ul>
             </nav>
             <Outlet/>

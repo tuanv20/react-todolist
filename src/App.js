@@ -9,6 +9,11 @@ import Agenda from './components/Calendar/Agenda';
 import ResourceManager from './components/ResourceManager/ResourceManager';
 import VideoPage from './components/ResourceManager/VideoPage';
 import ReactPage from './components/ResourceManager/resourcepages/ReactPage';
+import SpringBootPage from './components/ResourceManager/resourcepages/SpringBootPage';
+import DockerPage from './components/ResourceManager/resourcepages/DockerPage';
+import BootStrapPage from './components/ResourceManager/resourcepages/BootStrapPage';
+import MySQLPage from './components/ResourceManager/resourcepages/MySQLPage';
+import MiscellaneousPage from './components/ResourceManager/resourcepages/MiscellaneousPage';
 
 function App() {
 
@@ -26,6 +31,11 @@ function App() {
 
         <Route path = "/resourcemanager" element = {<ResourceManager/>}>
           <Route path ="react" element = {<ReactPage/>}/>
+          <Route path ="springboot" element = {<SpringBootPage/>}/>
+          <Route path ="docker" element = {<DockerPage/>}/>
+          <Route path ="bootstrap" element = {<BootStrapPage/>}/>
+          <Route path ="mysql" element = {<MySQLPage/>}/>
+          <Route path ="misc" element = {<MiscellaneousPage/>}/>
         </Route>
 
         <Route path = "/videoapi/:id" element = {<VideoPage/>}>
