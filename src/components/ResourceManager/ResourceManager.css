@@ -5,6 +5,7 @@
 }
 
 .sidebar {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -23,6 +24,7 @@
     width: 100%;
     text-align: center; 
     padding-top: 10px;
+    caret-color: transparent;
 }
 
 .sidebarbutton {
@@ -43,4 +45,11 @@ ul.sidecontent > li{
     padding-top: 15px;
 }
 
+.resourcelink{
+    cursor: pointer;
+    caret-color: transparent;
+}
 
+.resourcelink:hover{
+    color: #324A5F
+}
