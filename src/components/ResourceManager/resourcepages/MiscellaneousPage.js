@@ -46,6 +46,12 @@ export default function MiscellaneousPage(){
             video_id: "misc_fly"
         },
 
+        {
+            title: "Jenkins CI/CD",
+            description: "Continuous Integration and Deployment with Jenkins",
+            video_id: "misc_cicd"
+        },
+
         
     ]
     return(

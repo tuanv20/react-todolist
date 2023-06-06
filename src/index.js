@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, HashRouter } from 'react-router-dom';  
+
+//Try to change back to Browser router and handle 
+//index.html catch all in Springboot App 
+import { HashRouter } from 'react-router-dom';  
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <App/>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
 

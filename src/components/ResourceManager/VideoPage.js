@@ -53,6 +53,7 @@ export default function VideoPage(){
             misc_cors: "https://www.youtube.com/embed/h-WtIT6gCBk",
             misc_responsive: "https://www.youtube.com/embed/srvUrASNj0s",
             misc_fly: "https://www.youtube.com/embed/Cl9jRuX1eL0",
+            misc_cicd: "https://www.youtube.com/embed/mk2FBuTMwDc"
         }
         
         //Navigates back to the correct resource page 
