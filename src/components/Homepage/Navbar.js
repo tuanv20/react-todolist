@@ -63,7 +63,7 @@ export default function Navbar(){
         </NavLink>
       </NavItem>
       <NavItem>
-        <NavLink href="/content/resume" style={{color: 'white', textDecoration: 'none'}}>
+        <NavLink href="/Tuan_Tran_Resume2022.pdf" target='_blank' style={{color: 'white', textDecoration: 'none'}}>
           Resume
         </NavLink>
       </NavItem>

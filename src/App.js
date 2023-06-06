@@ -15,7 +15,7 @@ import BootStrapPage from './components/ResourceManager/resourcepages/BootStrapP
 import MySQLPage from './components/ResourceManager/resourcepages/MySQLPage';
 import MiscellaneousPage from './components/ResourceManager/resourcepages/MiscellaneousPage';
 import HomePage from './components/ResourceManager/Homepage';
-
+import Resume from './components/Resume/Resume';
 function App() {
 
   return (
@@ -29,6 +29,8 @@ function App() {
         <Route path = "/calendar" element = {<Calendar />}/>
 
         <Route path = "/agenda" element = {<Agenda/>}/>
+
+        {/* <Route path = "/resume" element = {<object href="/Tuan_Tran_Resume2022.pdf" download>Test</object>}/> */}
 
         <Route path = "/resourcemanager" element = {<ResourceManager/>}>
           <Route path ="homepage" element = {<HomePage/>}/>
