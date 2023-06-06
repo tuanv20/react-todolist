@@ -39,7 +39,7 @@ export default function Navbar(){
 
     //Using useMemo so the navbar doesn't reload everytime we refresh the page (since it's a global component)
     useMemo(() =>{
-      navigate("/resourcemanager")
+      navigate("/resourcemanager/homepage")
     }, [navigateResourceManager])
 
     useMemo(() =>{

@@ -4,10 +4,12 @@ import './ResourceManager.css';
 import { React, useState, useEffect } from 'react';
 import SidebarButton from './SidebarButton';
 import { NavItem } from 'reactstrap';
-import { useNavigate, Link, Outlet } from 'react-router-dom';
+import { useNavigate, Outlet } from 'react-router-dom';
+import HomePage from './Homepage';
 
 export default function ResourceManager(){
     const navigate = useNavigate();
+    console.log(window.location.href);
     const [sidebarWidth, changeWidth] = useState(0);
     const [page, changePage] = useState("");
 
@@ -95,7 +97,7 @@ export default function ResourceManager(){
                 </ul>
             </nav>
             <Outlet/>
-        </div>
+            </div>
                 <SidebarButton togglePressed = {toggleSidebar} width = {sidebarWidth}/>
         </div>
     )

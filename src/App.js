@@ -14,6 +14,7 @@ import DockerPage from './components/ResourceManager/resourcepages/DockerPage';
 import BootStrapPage from './components/ResourceManager/resourcepages/BootStrapPage';
 import MySQLPage from './components/ResourceManager/resourcepages/MySQLPage';
 import MiscellaneousPage from './components/ResourceManager/resourcepages/MiscellaneousPage';
+import HomePage from './components/ResourceManager/Homepage';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
         <Route path = "/agenda" element = {<Agenda/>}/>
 
         <Route path = "/resourcemanager" element = {<ResourceManager/>}>
+          <Route path ="homepage" element = {<HomePage/>}/>
           <Route path ="react" element = {<ReactPage/>}/>
           <Route path ="springboot" element = {<SpringBootPage/>}/>
           <Route path ="docker" element = {<DockerPage/>}/>
@@ -37,7 +39,6 @@ function App() {
           <Route path ="mysql" element = {<MySQLPage/>}/>
           <Route path ="misc" element = {<MiscellaneousPage/>}/>
         </Route>
-
         <Route path = "/videoapi/:id" element = {<VideoPage/>}>
         </Route>
 

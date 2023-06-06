@@ -1,4 +1,4 @@
-import './pages.css';
+import './videopage.css';
 import 'bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 export default function VideoPage(){
