@@ -4,7 +4,7 @@ import axios from 'axios'
 //local dev or production 
 
 //const REST_API_URL = 'http://localhost:8081/';
-const REST_API_URL = 'http://54.174.4.148:8081/'
+const REST_API_URL = 'http://35.171.142.248:8081/'
 
 //Service class that utilizes React Axios library to hit Springboot
 //application endpoints using HTTP requests 
