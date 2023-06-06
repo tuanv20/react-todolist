@@ -3,7 +3,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #CCC9DC;
+    /* background-color: #CCC9DC; */
+    background-color: lightgray;
     font-size:"30px";
     min-height: 100vh;
 }
@@ -18,7 +19,7 @@
     overflow:hidden;
     width: max-content;
     border-style:solid;
-    border-color: #324A5F   ;
+    border-color: black   ;
     border-radius: 1vmax;
     border-width: 0.2vmax;
 }

@@ -66,37 +66,40 @@ export default function ResourceManager(){
                 <div className='sideheader'> Resources </div>
                 <ul className = 'sidecontent'>
                     {page == 'React' ? 
-                    <NavItem className = "resourcelink" onClick = {displayReact} style={{color:"#324A5F"}}> React </NavItem>:
+                    <NavItem className = "resourcelink" onClick = {displayReact} style={{color:"#324A5F", fontWeight:'bold'}}> React </NavItem>:
                     <NavItem className = "resourcelink" onClick ={displayReact}> React </NavItem>
                     }
 
                     {page == 'SpringBoot' ? 
-                    <NavItem className = "resourcelink" onClick = {displaySpringBoot} style={{color:"#324A5F"}}> Springboot </NavItem>:
+                    <NavItem className = "resourcelink" onClick = {displaySpringBoot} style={{color:"#324A5F", fontWeight:'bold'}}> Springboot </NavItem>:
                     <NavItem className = "resourcelink" onClick ={displaySpringBoot}> Springboot </NavItem>
                     }
 
                     {page == 'Docker' ? 
-                    <NavItem className = "resourcelink" onClick = {displayDocker} style={{color:"#324A5F"}}> Docker </NavItem>:
+                    <NavItem className = "resourcelink" onClick = {displayDocker} style={{color:"#324A5F", fontWeight:'bold'}}> Docker </NavItem>:
                     <NavItem className = "resourcelink" onClick ={displayDocker}> Docker </NavItem>
                     }
 
                     {page == 'BootStrap' ? 
-                    <NavItem className = "resourcelink" onClick = {displayBootStrap} style={{color:"#324A5F"}}> Bootstrap </NavItem>:
+                    <NavItem className = "resourcelink" onClick = {displayBootStrap} style={{color:"#324A5F", fontWeight:'bold'}}> Bootstrap </NavItem>:
                     <NavItem className = "resourcelink" onClick ={displayBootStrap}> Bootstrap </NavItem>
                     }
 
                     {page == 'MySQL' ? 
-                    <NavItem className = "resourcelink" onClick = {displayMySQL} style={{color:"#324A5F"}}> MySQL </NavItem>:
+                    <NavItem className = "resourcelink" onClick = {displayMySQL} style={{color:"#324A5F", fontWeight:'bold'}}> MySQL </NavItem>:
                     <NavItem className = "resourcelink" onClick ={displayMySQL}> MySQL </NavItem>
                     }
 
                     {page == 'Misc' ? 
-                    <NavItem className = "resourcelink" onClick = {displayMisc} style={{color:"#324A5F"}}> Miscellaneous </NavItem>:
+                    <NavItem className = "resourcelink" onClick = {displayMisc} style={{color:"#324A5F", fontWeight:'bold'}}> Miscellaneous </NavItem>:
                     <NavItem className = "resourcelink" onClick ={displayMisc}> Miscellaneous </NavItem>
                     }
                 </ul>
             </nav>
+            {window.location.href.includes('homepage') ?
+            <HomePage openSidebar = {toggleSidebar}/> :
             <Outlet/>
+            }
             </div>
                 <SidebarButton togglePressed = {toggleSidebar} width = {sidebarWidth}/>
         </div>
