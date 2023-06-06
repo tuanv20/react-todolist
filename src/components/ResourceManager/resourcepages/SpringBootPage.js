@@ -7,13 +7,55 @@ export default function SpringBootPage(){
             description: "Simple Springboot Overview",
             video_id: "sb_tutorial"
         },
+
+        {
+            title: "MVC Project",
+            description: "Springboot Project using Model-View-Controller Pattern",
+            video_id: "sb_mvc"
+        },
+
+        {
+            title: "JDBC Template",
+            description: "Rest APIs in SpringBoot using JDBCTemplate" ,
+            video_id: "sb_jdbc"
+        },
+
+        {
+            title: "JPA Repository",
+            description: "Integrating JPA Repository into Springboot App" ,
+            video_id: "sb_jpa"
+        },
+
+        {
+            title: "Annotations",
+            description: "40+ Common Springboot Annotations" ,
+            video_id: "sb_annotations"
+        },
+
+        {
+            title: "Maven Frontend Plugin",
+            description: "Packaging React App into Springboot Project" ,
+            video_id: "sb_frontend"
+        },
+
+        {
+            title: "Springboot Annotations",
+            description: "40+ Common Springboot Annotations" ,
+            video_id: "sb_annotations"
+        },
+
+        {
+            title: "Maven and POM.xml",
+            description: "Understanding Maven and POM.xml" ,
+            video_id: "sb_mavenpom"
+        },
     ]
     return(
         <body>
             <header class="bg-dark py-3">
                 <div class="container px-4 px-lg-5 my-5">
                     <div class="text-center text-white">
-                        <h1 class="display-9 fw-bolder">SpringBoot Resources</h1>
+                        <h1 class="display-9 fw-bolder">Springboot Resources</h1>
                     </div>
                 </div>
             </header>

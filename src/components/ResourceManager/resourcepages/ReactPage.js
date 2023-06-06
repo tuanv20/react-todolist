@@ -15,7 +15,7 @@ export default function ReactPage(){
         },
 
         {
-            title: "React Webdev Portfolio",
+            title: "Webdev Portfolio",
             description: "3D Webdev Portfolio React App",
             video_id: "react_webdevportfolio"
         },
@@ -27,10 +27,29 @@ export default function ReactPage(){
         },
 
         {
-            title: "React Fullstack",
+            title: "Fullstack Project",
             description: "React Full Stack Project Tutorial",
             video_id: "react_fullstack"
         },
+
+        {
+            title: "Advanced Hooks",
+            description: "Advanced React Hook Tutorial",
+            video_id: "react_hooks"
+        },
+
+        {
+            title: "Component Props",
+            description: "How to Pass Data Between Components",
+            video_id: "react_props"
+        },
+
+        {
+            title: "React Libraries",
+            description: "Top 10 React Libraries of 2022",
+            video_id: "react_libs"
+        },
+
     ]
     return(
         <body>

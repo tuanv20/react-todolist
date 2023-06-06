@@ -11,6 +11,6 @@ export default function SidebarButton(props){
     }, [props.width])
 
     return(
-        <button className='btn btn-secondary sidebarbutton' onClick = {props.togglePressed} style = {{left: buttonOffset}}> <i class='bi bi-box-arrow-right'></i> Toggle Sidebar</button>
+        <button className='btn btn-secondary sidebarbutton' onClick = {props.togglePressed} style = {{left: buttonOffset}}> <i class='bi bi-box-arrow-right'></i> Resources </button>
     )
 }

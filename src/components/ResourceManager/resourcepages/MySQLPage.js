@@ -1,6 +1,44 @@
-import VideoSelect from "../VideoSelect"
+import VideoSelect from "../VideoSelect";
+import mysqlpng from "./img/mysql.png";
 export default function MySQLPage(){
     const videos = [
+        {
+            title: "MySQL Tutorial",
+            description: "Full MySQL Overview",
+            video_id: "mysql_tutorial"
+        },
+        
+        {
+            title: "Springboot Connection",
+            description: "Connecting MySQL Database to Springboot",
+            video_id: "mysql_springboot"
+        },
+
+        {
+            title: "MySQL Workbench",
+            description: "Intro to Queries with MySQL Workbench",
+            video_id: "mysql_workbench"
+        },
+
+        {
+            title: "MySQL with Docker Compose",
+            description: "Mounting sql.init and Running MySQL Database in Container",
+            video_id: "mysql_docker"
+        },
+
+        {
+            title: "MySQL CLI Tutorial",
+            description: "Basics of the MySQL CLI",
+            video_id: "mysq1_cli"
+        },
+
+        {
+            title: "Beginner to Expert Guide",
+            description: "20+ hour MySQL tutorial from Beginner to Advanced",
+            video_id: "mysql_expert"
+        },
+
+    
     ]
     return(
         <body>
@@ -15,7 +53,7 @@ export default function MySQLPage(){
                 <div class="container px-4 px-lg-5 mt-5">
                     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                         {videos.map(function(element) {
-                            return <VideoSelect title = {element.title} link = {element.link} desc = {element.description} id = {element.video_id}/>
+                            return <VideoSelect title = {element.title} link = {element.link} desc = {element.description} id = {element.video_id} img = {mysqlpng}/>
                         })}
                     </div>
                 </div>

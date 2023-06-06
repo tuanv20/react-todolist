@@ -69,8 +69,8 @@ export default function ResourceManager(){
                     }
 
                     {page == 'SpringBoot' ? 
-                    <NavItem className = "resourcelink" onClick = {displaySpringBoot} style={{color:"#324A5F"}}> SpringBoot </NavItem>:
-                    <NavItem className = "resourcelink" onClick ={displaySpringBoot}> SpringBoot </NavItem>
+                    <NavItem className = "resourcelink" onClick = {displaySpringBoot} style={{color:"#324A5F"}}> Springboot </NavItem>:
+                    <NavItem className = "resourcelink" onClick ={displaySpringBoot}> Springboot </NavItem>
                     }
 
                     {page == 'Docker' ? 
@@ -79,8 +79,8 @@ export default function ResourceManager(){
                     }
 
                     {page == 'BootStrap' ? 
-                    <NavItem className = "resourcelink" onClick = {displayBootStrap} style={{color:"#324A5F"}}> BootStrap </NavItem>:
-                    <NavItem className = "resourcelink" onClick ={displayBootStrap}> Docker </NavItem>
+                    <NavItem className = "resourcelink" onClick = {displayBootStrap} style={{color:"#324A5F"}}> Bootstrap </NavItem>:
+                    <NavItem className = "resourcelink" onClick ={displayBootStrap}> Bootstrap </NavItem>
                     }
 
                     {page == 'MySQL' ? 
