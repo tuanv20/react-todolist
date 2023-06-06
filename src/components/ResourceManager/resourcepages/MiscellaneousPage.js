@@ -1,5 +1,7 @@
 import VideoSelect from "../VideoSelect"
 import miscjpg from "./img/misc.jfif"
+
+//See ReactPage for Docs
 export default function MiscellaneousPage(){
     const videos = [
         {

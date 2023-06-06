@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+
+//Info Modal for the Todolist that describes 
+//functionality and tech stack used 
 export default function TodoInfo(args) {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);

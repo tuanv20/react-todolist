@@ -1,5 +1,8 @@
 
 import "./homepage.css";
+
+// Simple homepage component for resource manager.
+// Uses techstack.png in /resourcepages/img folder as bg 
 export default function HomePage(props){
     return(
     <div className = "homeheader">

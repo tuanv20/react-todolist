@@ -1,5 +1,7 @@
 import VideoSelect from "../VideoSelect";
 import mysqlpng from "./img/mysql.png";
+
+//See ReactPage for Docs
 export default function MySQLPage(){
     const videos = [
         {

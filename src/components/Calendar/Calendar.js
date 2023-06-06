@@ -9,6 +9,9 @@ import { useNavigate } from 'react-router-dom';
 
 const localizer = momentLocalizer(moment);
 
+//Calendar component that utilizes the react-big-calendar library
+//where frontend is synced with the MySQL database to display tasks
+//in real time as they're being updated by the todolist.
 export default function TaskCalendar(props){
     const navigate = useNavigate();
     const [events, changeEvents] = useState([]);
@@ -25,6 +28,8 @@ export default function TaskCalendar(props){
           }).catch( (response) => console.log(response));
     }, [])
 
+    //Fetches all of the tasks and displays them as tasks 
+    //with 1 hr lengths (no time display on calendar)
     useEffect( () => {
         let eventArr = [];
         tasks.forEach(task =>{
@@ -41,7 +46,9 @@ export default function TaskCalendar(props){
 
     return (
         <div className = "contentDiv">
-            <Calendar defaultView = 'month' views={['month', 'agenda']} localizer = {localizer} events = {events} startAccessor="start" endAccessor="end" style={{height:'37em'}}/>
+            {/* Month view is default and only month view is available (removes unused tabs)
+            can add day, week, and agenda to views to re-add tabs*/}
+            <Calendar defaultView = 'month' views={['month']} localizer = {localizer} events = {events} startAccessor="start" endAccessor="end" style={{height:'37em'}}/>
             <div className="buttonFooter">
                 <button className="btn btn-secondary" onClick = {agendaPressed}> Agenda <i class="bi bi-book"></i></button>
             </div>

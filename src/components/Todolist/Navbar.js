@@ -7,6 +7,8 @@ import {
     DropdownMenu,
 } from 'reactstrap';
 
+
+//Navbar for todolist: Handles Refresh, Filtering, and Searching functionality 
 export default function Navbar(props){
     const [searchText, changeSearchText] = useState("");
 
@@ -28,14 +30,17 @@ export default function Navbar(props){
     return(
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary border border-dark border-2 rounded-top">
             <ul class="navbar-nav">
+            {/* Calls the props callback function which tells Todolist to re-render */}
             <li class="nav-link active">
                 <a class="nav-link text-light px-4" href="#" onClick={refreshData}>Refresh</a>
             </li>
             <li class = "nav-link">
                 <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
                     <DropdownToggle nav caret style={{color: 'white', textDecoration: 'none'}}>
+                    {/* Filter dropdown says filter by default, changes to whatever is selected */}
                     {props.filterProp == "" ? "Filter" : props.filterProp}
                     </DropdownToggle>
+                    {/* Calls TaskService object (Axios request) depending on value of Dropdown item selected*/}
                     <DropdownMenu>
                         <DropdownItem value = "All" onClick={ (e) => toggleFilterState(e.target.value) }>All</DropdownItem>
                         <DropdownItem divider />
@@ -48,6 +53,7 @@ export default function Navbar(props){
                 </Dropdown>
             </li>
             </ul>
+            {/* Calls prop callback to search based on search text and re-render Todolist */}
             <div class="searchbar">
                 <input value = {searchText} class="form-control" type="search" placeholder="Search" aria-label="Search" onChange={ (e) => changeSearchText(e.target.value)}></input>
                 <button class="btn btn-outline-light" type="submit" onClick={searchHandler}>Search</button>

@@ -11,6 +11,8 @@ import {
     DropdownMenu,
 } from 'reactstrap';
 
+//Global navbar component that uses react-router-dom useNavigate hook
+//to move between different routes throughout the site
 export default function Navbar(){
     const navigate = useNavigate();
     const [navigateTodo, changeTodo] = useState(false);
@@ -58,6 +60,7 @@ export default function Navbar(){
     return(
       <Nav className='bg-dark' justified pills>
       <NavItem>
+        {/* target = _blank will open the href linked in a new tab */}
         <NavLink href="https://github.com/tuanv20" target = "_blank" style={{color: 'white', textDecoration: 'none'}}>
           Github
         </NavLink>

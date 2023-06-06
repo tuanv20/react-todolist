@@ -1,6 +1,14 @@
 import './videopage.css';
 import 'bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
+
+//Note: Should implement databasing soon and refactor janky video_id parsing solution
+
+//Component that handles all resource video handling.
+//Currently links predefined video_ids to embedded youtube videos
+//in a large video array. These video_ids are url parameters that are used 
+//by the VideoSelect component (each videoselect component has a video_id which 
+//is linked to a youtube video within the videos array)
 export default function VideoPage(){
     const navigate = useNavigate();
     const params = useParams();
@@ -46,7 +54,8 @@ export default function VideoPage(){
             misc_responsive: "https://www.youtube.com/embed/srvUrASNj0s",
             misc_fly: "https://www.youtube.com/embed/Cl9jRuX1eL0",
         }
-
+        
+        //Navigates back to the correct resource page 
         let backNavigate = function(){
             if(vid_id.includes('react')){
                 navigate("/resourcemanager/react")
@@ -75,6 +84,7 @@ export default function VideoPage(){
                 <div className="pageContentDiv">
                     <div className="videoDiv">
                         <div class="ratio ratio-16x9">
+                            {/* Defines src of video within videos array based on id url param*/}
                             <iframe src={videos[vid_id]} title="YouTube video" allowFullScreen = "true"></iframe>
                         </div>
                     </div>

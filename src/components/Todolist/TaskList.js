@@ -5,11 +5,18 @@ import TaskItem from './TaskItem';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import TaskService from '../../services/TaskService'
 import './Todolist.css';
+
+//Component that represents the entire task table
+//Maps task array to task items that are displayed 
+//as rows within the table
+
 export default function TaskList(props){
     let [tasks, setTasks] = useState([]);
     let [fetchCount, incFetchCount] = useState(0);
     let currPage = props.currPage;
 
+    //currPage is passed in as a prop from pageNav component 
+    //5 tasks per page are then rendered accordingly 
     let getTasksForPage = function(tasksArr, page){
       let pageTasks = [];
       for(let i = 0; i < tasksArr.length; i++){
@@ -21,17 +28,16 @@ export default function TaskList(props){
       }
       return pageTasks;
     }
+
+    //Main functionality for re-rendering task list,
+    //most components that force re-renders will call this 
     let update = function(){
       incFetchCount(fetchCount + 1);
     }
     //Fetch the tasks that are currently in the database
-    //Depends on fetchCount which will be incremented whenever a change is made to the database
-    //and submitProp which will notify the TaskList to refresh when a new task is added
+    //Depends on fetchCount which will be incremented whenever a change is 
+    //made to the database and other props that indicate the need for a re-render
     useEffect(() => {
-      console.log(props.filterProp);
-      console.log(props.searchText);
-      console.log("Tasks Fetched");
-      
       switch (props.filterProp){
         case "Completed":
           TaskService.getAllCompletedTasks(props.searchText).then((response) =>{
@@ -58,7 +64,6 @@ export default function TaskList(props){
 
     //Updates the global task list whenever tasks are updated
     useEffect( () => {
-      console.log("Updating Tasks in TaskList");
       props.updateTasks(tasks);
     }, [tasks])
 
@@ -79,6 +84,7 @@ export default function TaskList(props){
                 <tr>
                   {(tasks.length === 0)?<td colSpan="5" className="text-center"> Nothing to do </td> : null}
                 </tr>
+                {/* Maps tasks for the current page to TaskItems which are then displayed in the task list */}
                 {getTasksForPage(tasks, currPage).map(function(element){
                   return <TaskItem key = {element.id} updateTask = {update} task = {element}/>
                 })}

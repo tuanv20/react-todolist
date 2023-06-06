@@ -15,11 +15,14 @@ import BootStrapPage from './components/ResourceManager/resourcepages/BootStrapP
 import MySQLPage from './components/ResourceManager/resourcepages/MySQLPage';
 import MiscellaneousPage from './components/ResourceManager/resourcepages/MiscellaneousPage';
 import HomePage from './components/ResourceManager/Homepage';
-import Resume from './components/Resume/Resume';
+
+//Overarching App component that defines all of the routes used
+//within the site by using react-router-dom library
 function App() {
 
   return (
     <div>
+      {/* Navbar component will be global across all rendering of routes*/}
       <Navbar/>
       <Routes>
         <Route path = "/" element = {<Welcome />}/>
@@ -30,8 +33,7 @@ function App() {
 
         <Route path = "/agenda" element = {<Agenda/>}/>
 
-        {/* <Route path = "/resume" element = {<object href="/Tuan_Tran_Resume2022.pdf" download>Test</object>}/> */}
-
+        {/* Nested routes for Resource Manager */}
         <Route path = "/resourcemanager" element = {<ResourceManager/>}>
           <Route path ="homepage" element = {<HomePage/>}/>
           <Route path ="react" element = {<ReactPage/>}/>
@@ -41,6 +43,8 @@ function App() {
           <Route path ="mysql" element = {<MySQLPage/>}/>
           <Route path ="misc" element = {<MiscellaneousPage/>}/>
         </Route>
+
+        {/* Route with URL param for serving VideoPages for each unique ID */}
         <Route path = "/videoapi/:id" element = {<VideoPage/>}>
         </Route>
 

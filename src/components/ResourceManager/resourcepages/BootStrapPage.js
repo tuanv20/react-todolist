@@ -1,5 +1,7 @@
 import VideoSelect from "../VideoSelect";
 import bootstrappng from "./img/bootstrap.png";
+
+//See ReactPage for Docs
 export default function BootStrapPage(){
     const videos = [
         {

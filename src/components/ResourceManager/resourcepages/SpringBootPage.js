@@ -1,5 +1,7 @@
 import VideoSelect from "../VideoSelect"
 import springbootpng from './img/springboot.png';
+
+//See ReactPage for Docs
 export default function SpringBootPage(){
     const videos = [
         {

@@ -3,6 +3,7 @@ import 'bootstrap';
 import './ResourceManager.css'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
+//Simple button that toggles sidebar 
 export default function SidebarButton(props){
     const [buttonOffset, changeButtonOffset] = useState(props.width);
     

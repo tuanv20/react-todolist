@@ -1,6 +1,17 @@
 import VideoSelect from "../VideoSelect"
 import reactpng from './img/react.png';
+
+//Note: Should refactor to have a single page that parses
+//the request path using window.location.href to display 
+//resource page flexibly within a single component
+
+//Component that represents a page for a specific resource.
+//Comprised of several VideoSelect components, each linked to 
+//a VideoPage component by a unique video_id 
 export default function ReactPage(){
+    //Video data is predefined within this array which is mapped
+    //to a collection of VideoSelect components where the data is 
+    //passed down via props 
     const videos = [
         {
             title: "React Tutorial",

@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 
+//Component within every resource page that contains 
+//titles and descriptions of videos (passed in as props from the resource page)
 export default function VideoSelect(props){
     const navigate = useNavigate();
 
+    //Video ID is passed from resource page --> VideoSelect --> VideoPage
     let watchClicked = function(){
         navigate("/videoapi/" + props.id);
     }

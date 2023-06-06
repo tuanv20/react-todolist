@@ -7,12 +7,16 @@ import { NavItem } from 'reactstrap';
 import { useNavigate, Outlet } from 'react-router-dom';
 import HomePage from './Homepage';
 
+//Overarching Resource Manager project component,
+//renders content of all sub-components/sub-routes and defines global sidebar
 export default function ResourceManager(){
     const navigate = useNavigate();
     console.log(window.location.href);
     const [sidebarWidth, changeWidth] = useState(0);
     const [page, changePage] = useState("");
 
+    //Transition value in css file allows for sliding animation
+    //Upon width change of the sidebar div 
     let toggleSidebar = function(){
         if(sidebarWidth == 250){
             changeWidth(0);
@@ -65,6 +69,7 @@ export default function ResourceManager(){
             <nav className = 'sidebar' style ={{width:sidebarWidth}}>
                 <div className='sideheader'> Resources </div>
                 <ul className = 'sidecontent'>
+                    {/* Highlights selected resource when clicked and toggles sidebar */}
                     {page == 'React' ? 
                     <NavItem className = "resourcelink" onClick = {displayReact} style={{color:"#324A5F", fontWeight:'bold'}}> React </NavItem>:
                     <NavItem className = "resourcelink" onClick ={displayReact}> React </NavItem>
@@ -96,8 +101,10 @@ export default function ResourceManager(){
                     }
                 </ul>
             </nav>
+            {/* Separate handling of homepage to allow for a prop to be passed in */}
             {window.location.href.includes('homepage') ?
             <HomePage openSidebar = {toggleSidebar}/> :
+            //Outlet is replaced by content of the sub-component 
             <Outlet/>
             }
             </div>

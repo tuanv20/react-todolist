@@ -3,6 +3,8 @@ import {useState} from 'react';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import TaskService from '../../services/TaskService'
+
+//Component that allows for updates to task item
 export default function UpdateButton(props){
     let task = props.task;
     const [date, changeDate] = useState(new Date(TaskService.EpochtoDate(task.dueDate)));
@@ -21,6 +23,7 @@ export default function UpdateButton(props){
         })
     }
     return(
+        //Uses standard form text input for changes to title and react-date-picker for changes to due date
         <tr>
             <td className="text-center">
                 <input type="text" value = {title} className = "form-control"  placeholder="Type your task here. (Required)" onChange = {(e) => {setTitle(e.target.value)}}/>

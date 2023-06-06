@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
+//Basic info modal component that describes 
+//website and the tech stack used
 export default function ModalButton(args) {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);

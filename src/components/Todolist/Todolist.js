@@ -8,6 +8,9 @@ import Navbar from './Navbar';
 import TodoInfo from './TodoInfo';
 import PageNav from './PageNav';
 
+//Overarching Todolist component containing the Tasklist,
+//NewTaskButton, pageNav, and Navbar. Handles the core
+//functionality of passing data between components 
 export default function Todolist(props){
     const [taskListProp, updateTaskList] = useState(false);
     const [filterState, changeFilterState] = useState("");
@@ -44,6 +47,9 @@ export default function Todolist(props){
     }
 
     return ( 
+    //Plenty of example of passing props to child components below
+    //NOTE: NEVER pass in a props function with ()s, this will call it 
+    //for every render and result in an infinite loop of renderings 
     <div className="App-div">
         <div className="content-div">
         <Navbar filterProp = {filterState} changeRefresh = {refreshPressed} changeFilter = {filterToggle} searchTextCallback = {searchTextCallbackHandler}/>

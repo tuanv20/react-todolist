@@ -5,6 +5,8 @@ import UpdateButton from './UpdateButton';
 import TaskService from '../../services/TaskService'
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
+//Component that represents a single task item 
+//Makes up the rows of the taskList component 
 export default function TaskItem(props){
     let task = props.task;
     let title = task.taskItem;
@@ -40,12 +42,16 @@ export default function TaskItem(props){
             })
     }
 
+    //Returns either an update button or task item depending on updatePressed status
     if(updatePressed == false){
         return(
+            //Switches out the task info for an updateButton item on double click
             <tr onDoubleClick={pressUpdate} className="border border-2 border-secondary">
+                {/* Strikes through completed task titles */}
                 {task.completed ? <td className="text-left" ><s>{title}</s></td>
                 : <td className="text-left overflow-auto">{title}</td>}
                 <td className="text-center">{TaskService.EpochtoDate(dueDate)}</td>
+                {/* Displays complete date if task is completed, empty string otherwise */}
                 <td className="text-center">{task.completed ? TaskService.EpochtoDate(completeDate) : " "}</td>
                 <td className="text-center">
                     <button type="button" className="btn btn-danger btn-xs" alt="Delete the task" onClick = {deleteTask}>
@@ -60,7 +66,6 @@ export default function TaskItem(props){
     }
     else{
         return(
-            //
             <UpdateButton task = {task} pressUpdateCallback = {pressUpdate}/>
         )
     }
