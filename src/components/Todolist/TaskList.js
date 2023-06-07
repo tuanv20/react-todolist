@@ -15,6 +15,44 @@ export default function TaskList(props){
     let [fetchCount, incFetchCount] = useState(0);
     let currPage = props.currPage;
 
+    //Sorts the tasks when the sort prop is changed and
+    //then changes the task which forces a re-render of the list
+    let sortTasks = function(){
+      console.log(props.sortProp);
+      let sortedTasks;
+
+      switch(props.sortProp){
+          case "Task Item": 
+            sortedTasks = tasks.sort((a, b) => {
+              if (a.taskItem < b.taskItem) {
+                return -1;
+              }
+            });
+            break;
+
+          case "Due Date":
+            sortedTasks = tasks.sort((a, b) => {
+              if (a.dueDate < b.dueDate) {
+                return -1;
+              }
+            });
+            break;
+
+          case "Complete Date":
+            sortedTasks = tasks.sort((a, b) => {
+              if (a.completeDate < b.completeDate) {
+                return -1;
+              }
+            });  
+            break;
+          
+          default:
+            sortedTasks = tasks;
+        }
+        console.log(sortedTasks);
+        return sortedTasks;
+    }
+
     //currPage is passed in as a prop from pageNav component 
     //5 tasks per page are then rendered accordingly 
     let getTasksForPage = function(tasksArr, page){
@@ -34,9 +72,11 @@ export default function TaskList(props){
     let update = function(){
       incFetchCount(fetchCount + 1);
     }
+
     //Fetch the tasks that are currently in the database
     //Depends on fetchCount which will be incremented whenever a change is 
     //made to the database and other props that indicate the need for a re-render
+
     useEffect(() => {
       switch (props.filterProp){
         case "Completed":
@@ -60,7 +100,7 @@ export default function TaskList(props){
           }).catch( (response) => console.log(response));
           break;
       }
-    }, [fetchCount, props.submitProp, props.filterProp, props.searchText, props.currPage])
+    }, [fetchCount, props.submitProp, props.filterProp, props.searchText, props.currPage, props.deleteProp, props.sortProp])
 
     //Updates the global task list whenever tasks are updated
     useEffect( () => {
@@ -84,8 +124,8 @@ export default function TaskList(props){
                 <tr>
                   {(tasks.length === 0)?<td colSpan="5" className="text-center"> Nothing to do </td> : null}
                 </tr>
-                {/* Maps tasks for the current page to TaskItems which are then displayed in the task list */}
-                {getTasksForPage(tasks, currPage).map(function(element){
+                {/* Maps tasks for the current page (and sorts them if applicable) to TaskItems which are then displayed in the task list */}
+                {sortTasks(getTasksForPage(tasks, currPage)).map(function(element){
                   return <TaskItem key = {element.id} updateTask = {update} task = {element}/>
                 })}
               </tbody>

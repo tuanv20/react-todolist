@@ -10,6 +10,9 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 export default function TaskItem(props){
     let task = props.task;
     let title = task.taskItem;
+    if(title.length > 26){
+        title = title.substring(0,25) + "...";
+    }
     let dueDate = task.dueDate;
     let completeDate = task.completeDate;
 
