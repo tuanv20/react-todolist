@@ -75,12 +75,15 @@ export default function Navbar(props){
                         </DropdownMenu>
                     </Dropdown>
                 </li>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li>
+                    <div class = "searchbar">
+                        <input value = {searchText} class="form-control" type="search" placeholder="Search" aria-label="Search" onChange={ (e) => changeSearchText(e.target.value)} style={{width:'20vh'}}></input>
+                        <button class="btn btn-outline-light" type="submit" onClick={searchHandler}>Search</button>
+                    </div>
+                </li>
             </ul>
             {/* Calls prop callback to search based on search text and re-render Todolist */}
-            <div class="searchbar" style={{position: 'fixed', width:'50vh', paddingRight:'10vh'}}>
-                <input value = {searchText} class="form-control" type="search" placeholder="Search" aria-label="Search" onChange={ (e) => changeSearchText(e.target.value)} style={{width:'20vh'}}></input>
-                <button class="btn btn-outline-light" type="submit" onClick={searchHandler}>Search</button>
-            </div>
         </nav>
     )   
 }
