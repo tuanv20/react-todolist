@@ -1,6 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Navbar.css';
 import {
     Nav, 
     NavItem,
@@ -58,19 +59,19 @@ export default function Navbar(){
 
 
     return(
-      <Nav className='bg-dark' justified pills>
-      <NavItem>
+      <Nav className='bg-dark navbar'>
+      <NavItem className = "navlink" >
         {/* target = _blank will open the href linked in a new tab */}
         <NavLink href="https://github.com/tuanv20" target = "_blank" style={{color: 'white', textDecoration: 'none'}}>
           Github
         </NavLink>
       </NavItem>
-      <NavItem>
-        <NavLink href="/Tuan_Tran_Resume2022.pdf" target='_blank' style={{color: 'white', textDecoration: 'none'}}>
+      <NavItem className = "navlink" >
+        <NavLink href="/Resume2023.pdf" target='_blank' style={{color: 'white', textDecoration: 'none'}}>
           Resume
         </NavLink>
       </NavItem>
-      <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
+      <Dropdown nav isOpen={dropdownOpen} toggle={toggle} className = "navlink" >
         <DropdownToggle nav caret style={{color: 'white', textDecoration: 'none'}}>
           Projects
         </DropdownToggle>
@@ -82,8 +83,8 @@ export default function Navbar(){
           <DropdownItem onClick = {resourceManagerPressed}>Resource Manager</DropdownItem>
         </DropdownMenu>
       </Dropdown>
-      <NavItem>
-        <NavLink nav caret onClick = {homePressed} style={{color: 'white', textDecoration: 'none', caretColor: 'transparent', cursor: 'pointer'}}>
+      <NavItem className = "navlink" >
+        <NavLink onClick = {homePressed} style={{color: 'white', textDecoration: 'none', caretColor: 'transparent', cursor: 'pointer'}}>
           Home
         </NavLink>
       </NavItem>

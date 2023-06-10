@@ -1,0 +1,12 @@
+.navlink, .navlink > {
+    margin: 1vh;
+    padding: 1vh;
+    font-size: 2vh;
+    max-width: 10vh;
+    max-height: 6vh;
+}
+
+.navbar{
+    max-height: 8vh;
+    font-size: 2vh;
+}
